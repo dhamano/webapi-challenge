@@ -80,6 +80,7 @@ router.put('/:id', (req, res) => {
   const newChore = req.body.description;
   const personAssigned = req.body.assignedTo;
   let isCompleted = req.body.completed;
+  let doesExist = false;
   if(isCompleted === undefined) {
     isCompleted = false;
   }
@@ -92,12 +93,17 @@ router.put('/:id', (req, res) => {
         if(item.id === id) {
           chores.splice(id-1, 1, { id, description: newChore, notes: choreNotes, assignedTo: personAssigned, completed: isCompleted });
           updateChore = chores[id-1];
+          doesExist = true;
         }
       })
-      if (choreLength === chores.length) {
-        res.status(200).json(updateChore);
+      if(doesExist) {
+        if (choreLength === chores.length) {
+          res.status(200).json(updateChore);
+        } else {
+          res.status(500).json({ error: 'Something went wrong, your data could have been corrupted' })
+        }
       } else {
-        res.status(500).json({ error: 'Something went wrong, your data could have been corrupted' })
+        res.status(404).json({ error: 'chore does not exist' });
       }
     } else {
       res.status(404).json({ error: 'chore doe not exist' });
