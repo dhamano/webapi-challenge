@@ -13,7 +13,11 @@ router.get('/', (req, res) => {
   const query = req.query.completed;
   let queryArr = [];
   if (query === undefined) {
-    res.status(200).json(chores);
+    if(chores.length < 1) {
+      res.status(404).json({ message: 'there are no chores' })
+    } else {
+      res.status(200).json(chores);
+    }
   } else {
     queryArr = chores.filter( item => {
       return item.completed.toString() === query;
