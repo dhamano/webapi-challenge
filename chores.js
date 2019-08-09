@@ -61,19 +61,16 @@ router.post('/', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  let exists = false;
-  chores.filter( item => {
-    if(item.id === id) {
-      exists = true;
-      chores.splice(id-1, 1);
-    } else {
-      return item;
-    }
+  const choreLength = chores.length;
+
+  chores = chores.filter( item => {
+    return item.id !== id;
   })
-  if(exists) {
+
+  if( chores.length < choreLength ) {
     res.status(410).json({ message: "chore removed" });
   } else {
-    res.status(404).json({ error: 'chore does not exist' })
+    res.status(404).json({ error: 'chore does not exist' });
   }
 })
 
