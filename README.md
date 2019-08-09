@@ -25,10 +25,10 @@ Follow these steps to set up and work on your project:
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
-- [ ] Please don't merge your own pull request.
-- [ ] Add your _Team Lead_ as a Reviewer on the Pull-request
-- [ ] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
+- [x] Submit a Pull-Request to merge `firstName-lastName` Branch into master on **your fork, don't make Pull Requests against Lambda's repository**.
+- [x] Please don't merge your own pull request.
+- [x] Add your _Team Lead_ as a Reviewer on the Pull-request
+- [x] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
 
 ## Commits
 
@@ -61,7 +61,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 - [x] Hard code an array with a few **people**. No need to write endpoints to manage them.
 - [x] Write an endpoint that accepts a person's `id` and returns the list of **chores** for the person. if a person with that `id` does not exist in the **people** array, the endpoint should return a `404` status code and a message. If the person exists, but has no **chores** assigned, return an empty array.
 - [x] Add support for a `query string parameter` called _completed_ to the endpoint that returns the list of chores. When the client sends this query string parameter, and the value is `true`, the endpoint should return the list of completed chores. If the value of the query string parameter is `false`, the endpoint should return chores where completed is `false`. If the query string parameter is not sent, the endpoint should return all chores.
-- [ ] Deploy the API to _heroku_ and send the URL to your TL.
+- [x] Deploy the API to _heroku_ and send the URL to your TL.
 
 ### Resources (People and Chores)
 
